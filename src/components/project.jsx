@@ -1,26 +1,28 @@
 import React from "react";
 import { Card } from "./ui/card";
-
-const projects = [
-  {
-    name: "Project One",
-    video: "https://www.youtube.com/embed/ZXWdktDBi8Q?si=t_yiD3dKV5WmnKl1",
-    description:
-      "This is a short description of the project — what it does, the problem it solves, or the tech behind it.",
-    tech: ["React", "Node.js", "Tailwind CSS"],
-    github: "https://github.com/your-repo",
-  },
-  {
-    name: "Project Two",
-    video: "https://www.youtube.com/embed/dQw4w9WgXcQ", // example link
-    description: "Another project with different stack and purpose.",
-    tech: ["Next.js", "TypeScript", "Shadcn UI"],
-    github: "https://github.com/your-second-repo",
-  },
-];
-
+import { useTranslations } from "next-intl";
 
 const Project = () => {
+  const t = useTranslations('Projects');
+
+  const projects = [
+    {
+      name: t('list.project1.name'),
+      video: "https://www.youtube.com/embed/ZXWdktDBi8Q?si=t_yiD3dKV5WmnKl1",
+      description: t('list.project1.description'),
+      tech: ["React", "Node.js", "Tailwind CSS"],
+      github: "https://github.com/your-repo",
+    },
+    {
+      name: t('list.project2.name'),
+      video: "https://www.youtube.com/embed/dQw4w9WgXcQ", // example link
+      description: t('list.project2.description'),
+      tech: ["Next.js", "TypeScript", "Shadcn UI"],
+      github: "https://github.com/your-second-repo",
+    },
+  ];
+
+
   return (
     <section id="projects" className="py-10 px-4 sm:px-6 lg:px-8">
 
@@ -48,7 +50,7 @@ const Project = () => {
 
               {/* Tech Stack */}
               <div>
-                <h4 className="text-sm font-medium mb-1">Tech Stack:</h4>
+                <h4 className="text-sm font-medium mb-1">{t('techStack')}</h4>
                 <ul className="flex flex-wrap gap-2 text-xs text-muted-foreground">
                   {project.tech.map((item, i) => (
                     <li key={i} className="px-2 py-1 bg-muted rounded-md">
@@ -65,7 +67,7 @@ const Project = () => {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
               >
-                View on GitHub →
+                {t('viewGithub')}
               </a>
             </ div>
           ))}
@@ -78,3 +80,4 @@ const Project = () => {
 };
 
 export default Project;
+

@@ -1,0 +1,95 @@
+{
+    "Navbar": {
+        "about": "About",
+        "experience": "Experience",
+        "projects": "Projects",
+        "contact": "Contact",
+        "en": "En",
+        "fr": "Fr"
+    },
+    "Hero": {
+        "available": "Available for work",
+        "greeting": "Hi, I'm",
+        "role": "Full-Stack Developer",
+        "description": "Building scalable, reliable, and impactful digital products across web, mobile, and backend platforms.",
+        "primaryButton": "Get Started",
+        "secondaryButton": "Contact Me"
+    },
+    "About": {
+        "title": "About Me",
+        "p1": "I build scalable, high-performance digital products with a strong focus on <highlight>Next.js, Java, and Microservices</highlight>. My work blends clean architecture, thoughtful UI, and production-ready engineering to deliver systems that perform reliably at scale.",
+        "p2": "I design and implement solutions across <highlight>web, Node.js backends, Android, and iOS platforms</highlight>, ensuring consistent performance, and user experience on every device.",
+        "p3": "I thrive on simplifying complex problems, optimizing performance, and creating maintainable systems. My goal is to deliver products that are not just functional, but elegant, reliable, and impactful.",
+        "skillsTitle": "Technologies & Skills",
+        "categories": {
+            "frontend": "Frontend",
+            "backend": "Backend",
+            "mobile": "Mobile",
+            "databases": "Databases",
+            "devops": "DevOps & Tools",
+            "practices": "Practices"
+        }
+    },
+    "Experience": {
+        "title": "Experience",
+        "subtitle": "My professional journey in software development.",
+        "jobs": {
+            "job1": {
+                "role": "Software Developer",
+                "company": "Kyrotics – AI Solution Startup",
+                "period": "Oct 2024 - Dec 2024",
+                "period2": "& Jul 2025 - Sep 2025",
+                "location": "Remote",
+                "description": [
+                    "Contributed to a comparison tool that improved AI content review efficiency.",
+                    "Optimized performance via Redis Caching, reducing response time by 55% and backend load by 30%.",
+                    "Refactored API endpoints, reducing system load and backend stress resulting speedy performance.",
+                    "Collaborated to identify issues, and offer actionable feedback, enabling better decision making."
+                ]
+            },
+            "job2": {
+                "role": "Jr. Software Developer",
+                "company": "Skill Squirrel",
+                "period": "Jan 2024 - Apr 2024",
+                "location": "Mississauga, ON",
+                "description": [
+                    "Developed interactive user interface using React, ensuring seamless and modern user experience.",
+                    "Refactored redundant CSS into a fully responsive design, ensuring 100% cross device compatibility.",
+                    "Implemented WCAG accessibility standards, enhancing the platform for user with disabilities.",
+                    "Collaborated in an Agile team to deliver high-quality components through rigorous peer reviews."
+                ]
+            }
+        }
+    },
+    "Projects": {
+        "title": "Projects",
+        "viewGithub": "View on GitHub →",
+        "techStack": "Tech Stack:",
+        "list": {
+            "project1": {
+                "name": "Project One",
+                "description": "This is a short description of the project — what it does, the problem it solves, or the tech behind it."
+            },
+            "project2": {
+                "name": "Project Two",
+                "description": "Another project with different stack and purpose."
+            }
+        }
+    },
+    "Contact": {
+        "title": "Get in Touch",
+        "subtitle": "Open to roles where I can deliver impactful digital products — let’s connect!",
+        "name": "Name",
+        "email": "Email Address",
+        "message": "Message",
+        "placeholders": {
+            "name": "Tyler Durden",
+            "email": "projectmayhem@fc.com",
+            "message": "Type your message here..."
+        },
+        "send": "Send Message",
+        "sending": "Sending...",
+        "success": "Message sent successfully!",
+        "error": "Failed to send message. Please try again."
+    }
+}

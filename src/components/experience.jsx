@@ -1,36 +1,39 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaCalendarAlt, FaMapMarkerAlt, FaBriefcase } from "react-icons/fa";
+import { useTranslations } from "next-intl";
 
 const Experience = () => {
+  const t = useTranslations('Experience');
+
   const experiences = [
     {
-      role: "Software Developer",
-      company: "Kyrotics – AI Solution Startup",
+      role: t('jobs.job1.role'),
+      company: t('jobs.job1.company'),
       period: (
         <span className="flex flex-col">
-          <span>Oct 2024 - Dec 2024</span>
-          <span className="text-xs opacity-70">& Jul 2025 - Sep 2025</span>
+          <span>{t('jobs.job1.period')}</span>
+          <span className="text-xs opacity-70">{t('jobs.job1.period2')}</span>
         </span>
       ),
-      location: "Remote",
+      location: t('jobs.job1.location'),
       description: [
-        "Contributed to a comparison tool that improved AI content review efficiency.",
-        "Optimized performance via Redis Caching, reducing response time by 55% and backend load by 30%.",
-        "Refactored API endpoints, reducing system load and backend stress resulting speedy performance.",
-        "Collaborated to identify issues, and offer actionable feedback, enabling better decision making.",
+        t('jobs.job1.description.0'),
+        t('jobs.job1.description.1'),
+        t('jobs.job1.description.2'),
+        t('jobs.job1.description.3'),
       ],
     },
     {
-      role: "Jr. Software Developer",
-      company: "Skill Squirrel",
-      period: "Jan 2024 - Apr 2024",
-      location: "Mississauga, ON",
+      role: t('jobs.job2.role'),
+      company: t('jobs.job2.company'),
+      period: t('jobs.job2.period'),
+      location: t('jobs.job2.location'),
       description: [
-        "Developed interactive user interface using React, ensuring seamless and modern user experience.",
-        "Refactored redundant CSS into a fully responsive design, ensuring 100% cross device compatibility.",
-        "Implemented WCAG accessibility standards, enhancing the platform for user with disabilities.",
-        "Collaborated in an Agile team to deliver high-quality components through rigorous peer reviews.",
+        t('jobs.job2.description.0'),
+        t('jobs.job2.description.1'),
+        t('jobs.job2.description.2'),
+        t('jobs.job2.description.3'),
       ],
     },
   ];
@@ -67,11 +70,11 @@ const Experience = () => {
           className="text-center mb-16 space-y-4"
         >
           <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-foreground">
-            Experience
+            {t('title')}
           </h2>
           <div className="h-1 w-24 bg-primary/20 rounded-full mx-auto"></div>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            My professional journey in software development.
+            {t('subtitle')}
           </p>
         </motion.div>
 
@@ -135,3 +138,4 @@ const Experience = () => {
 };
 
 export default Experience;
+

@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
 import emailjs from '@emailjs/browser';
+import { useTranslations } from "next-intl";
 
 // Custom Textarea component inheriting the Input style logic
 const TextArea = React.forwardRef(({ className, ...props }, ref) => {
@@ -49,6 +50,7 @@ const TextArea = React.forwardRef(({ className, ...props }, ref) => {
 TextArea.displayName = "TextArea";
 
 export default function ContactMe() {
+    const t = useTranslations('Contact');
     const form = useRef();
     const [status, setStatus] = useState({ loading: false, success: false, error: null });
 
@@ -76,7 +78,7 @@ export default function ContactMe() {
                 },
                 (error) => {
                     console.error("FAILED...", error.text);
-                    setStatus({ loading: false, success: false, error: "Failed to send message. Please try again." });
+                    setStatus({ loading: false, success: false, error: t('error') });
                 },
             );
     };
@@ -93,30 +95,30 @@ export default function ContactMe() {
                     transition={{ duration: 0.5 }}
                 >
                     <h2 className="text-3xl font-bold text-neutral-800 dark:text-neutral-200 text-center font-serif">
-                        Get in Touch
+                        {t('title')}
                     </h2>
                     <p className="mt-2 text-center text-sm text-neutral-600 dark:text-neutral-300">
-                        Open to roles where I can deliver impactful digital products — let’s connect!
+                        {t('subtitle')}
                     </p>
                 </motion.div>
 
                 <form className="my-8" ref={form} onSubmit={handleSubmit}>
                     <LabelInputContainer className="mb-4">
-                        <Label htmlFor="from_name">Name</Label>
-                        <Input id="from_name" name="from_name" placeholder="Tyler Durden" type="text" required />
+                        <Label htmlFor="from_name">{t('name')}</Label>
+                        <Input id="from_name" name="from_name" placeholder={t('placeholders.name')} type="text" required />
                     </LabelInputContainer>
 
                     <LabelInputContainer className="mb-4">
-                        <Label htmlFor="from_email">Email Address</Label>
-                        <Input id="from_email" name="from_email" placeholder="projectmayhem@fc.com" type="email" required />
+                        <Label htmlFor="from_email">{t('email')}</Label>
+                        <Input id="from_email" name="from_email" placeholder={t('placeholders.email')} type="email" required />
                     </LabelInputContainer>
 
                     <LabelInputContainer className="mb-4">
-                        <Label htmlFor="message">Message</Label>
+                        <Label htmlFor="message">{t('message')}</Label>
                         <TextArea
                             id="message"
                             name="message"
-                            placeholder="Type your message here..."
+                            placeholder={t('placeholders.message')}
                             required
                         />
                     </LabelInputContainer>
@@ -126,11 +128,11 @@ export default function ContactMe() {
                         type="submit"
                         disabled={status.loading}
                     >
-                        {status.loading ? "Sending..." : "Send Message"} &rarr;
+                        {status.loading ? t('sending') : t('send')} &rarr;
                         <BottomGradient />
                     </button>
 
-                    {status.success && <p className="mt-4 text-center text-green-500 text-sm">Message sent successfully!</p>}
+                    {status.success && <p className="mt-4 text-center text-green-500 text-sm">{t('success')}</p>}
                     {status.error && <p className="mt-4 text-center text-red-500 text-sm">{status.error}</p>}
 
                     <div
@@ -140,6 +142,7 @@ export default function ContactMe() {
         </section>
     );
 }
+
 
 const BottomGradient = () => {
     return (

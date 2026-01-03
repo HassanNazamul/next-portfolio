@@ -1,19 +1,15 @@
+
 import { Button } from "@/components/ui/button";
 import { GradientText } from "@/components/ui/shadcn-io/gradient-text/index";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
-const Hero = ({
-  title = "Mohammed Nazamul Hassan",
-  description = "Building scalable, reliable, and impactful digital products across web, mobile, and backend platforms.",
-  buttonPrimary = {
-    text: "Get Started",
-    href: "https://shadcnblocks.com",
-  },
-  buttonSecondary = {
-    text: "Contact Me",
-    href: "mailto:example@example.com",
-  }
-}) => {
+const Hero = () => {
+  const t = useTranslations('Hero');
+
+  const title = "Mohammed Nazamul Hassan"; // Keeping name hardcoded or could be t('name') if localized name needed.
+  // Using t('greeting') for "Hi, I'm"
+
   return (
     <section id="hero" className="relative w-full min-h-[70vh] flex items-center justify-center overflow-hidden py-12 md:py-24 lg:py-32 bg-background">
       <div className="container px-4 md:px-6 relative z-10 flex flex-col items-center text-center">
@@ -26,7 +22,7 @@ const Hero = ({
           className="inline-flex items-center rounded-full border bg-background/50 px-3 py-1 text-sm font-medium backdrop-blur-sm mb-6"
         >
           <span className="flex h-2 w-2 rounded-full bg-green-500 mr-2 animate-pulse"></span>
-          Available for work
+          {t('available')}
         </motion.div>
 
         {/* Main Heading */}
@@ -37,7 +33,7 @@ const Hero = ({
           className="space-y-4 max-w-4xl"
         >
           <div className="text-xl md:text-2xl text-muted-foreground font-medium">
-            Hi, I&apos;m
+            {t('greeting')}
           </div>
 
           <GradientText
@@ -47,7 +43,7 @@ const Hero = ({
           />
 
           <h2 className="text-2xl md:text-3xl font-semibold text-foreground pt-2">
-            Full-Stack Developer
+            {t('role')}
           </h2>
         </motion.div>
 
@@ -58,7 +54,7 @@ const Hero = ({
           transition={{ delay: 0.3, duration: 0.6, ease: "easeOut" }}
           className="mx-auto mt-6 max-w-2xl text-lg md:text-xl text-muted-foreground leading-relaxed"
         >
-          {description}
+          {t('description')}
         </motion.p>
 
         {/* Buttons */}
@@ -69,14 +65,14 @@ const Hero = ({
           className="mt-10 flex flex-wrap items-center justify-center gap-4"
         >
           <Button size="lg" className="rounded-full px-8 h-12 text-base transition-transform hover:scale-105" asChild>
-            <a href={buttonPrimary.href} target="_blank" rel="noopener noreferrer">
-              {buttonPrimary.text}
+            <a href="https://shadcnblocks.com" target="_blank" rel="noopener noreferrer">
+              {t('primaryButton')}
             </a>
           </Button>
 
           <Button variant="outline" size="lg" className="rounded-full px-8 h-12 text-base backdrop-blur-sm transition-transform hover:scale-105 hover:bg-secondary/60" asChild>
-            <a href={buttonSecondary.href} target="_blank" rel="noopener noreferrer">
-              {buttonSecondary.text}
+            <a href="mailto:example@example.com" target="_blank" rel="noopener noreferrer">
+              {t('secondaryButton')}
             </a>
           </Button>
         </motion.div>
@@ -87,3 +83,4 @@ const Hero = ({
 };
 
 export default Hero;
+

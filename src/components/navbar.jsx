@@ -1,11 +1,13 @@
 "use client"
 
-import { useId, useState } from "react"
+import { useId, useState, useTransition } from "react"
 import { GlobeIcon, Menu, X } from "lucide-react"
 import ThemeToggle from "@/components/theme-toggle"
 import UserMenu from "@/components/user-menu"
 import { motion, AnimatePresence } from "framer-motion"
 import { Link, animateScroll as scroll } from "react-scroll"
+import { useTranslations, useLocale } from 'next-intl';
+import { usePathname, useRouter } from '@/i18n/routing';
 
 import {
   Select,
@@ -16,23 +18,29 @@ import {
 } from "@/components/ui/select"
 import { Button } from "@/components/ui/button"
 
-// Navigation links
-const navigationLinks = [
-  { to: "about", label: "About" },
-  { to: "experience", label: "Experience" },
-  { to: "projects", label: "Projects" },
-  { to: "contact", label: "Contact" },
-]
-
-// Language options
-const languages = [
-  { value: "en", label: "En" },
-  { value: "fr", label: "Fr" },
-]
-
 export default function Navbar() {
+  const t = useTranslations('Navbar');
+  const locale = useLocale();
+  const router = useRouter();
+  const pathname = usePathname();
+  const [isPending, startTransition] = useTransition();
+
   const id = useId();
   const [isOpen, setIsOpen] = useState(false);
+
+  // Navigation links
+  const navigationLinks = [
+    { to: "about", label: t('about') },
+    { to: "experience", label: t('experience') },
+    { to: "projects", label: t('projects') },
+    { to: "contact", label: t('contact') },
+  ]
+
+  // Language options
+  const languages = [
+    { value: "en", label: t('en') },
+    { value: "fr", label: t('fr') },
+  ]
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -40,6 +48,12 @@ export default function Navbar() {
   const scrollToTop = () => {
     scroll.scrollToTop();
     setIsOpen(false);
+  };
+
+  const onLanguageChange = (value) => {
+    startTransition(() => {
+      router.replace(pathname, { locale: value });
+    });
   };
 
   return (
@@ -75,7 +89,7 @@ export default function Navbar() {
                 to={link.to}
                 spy={true}
                 smooth={true}
-                offset={-400}
+                offset={-100}
                 duration={500}
                 activeClass="text-primary bg-primary/10 font-semibold scale-110"
                 className="
@@ -101,7 +115,7 @@ export default function Navbar() {
             </div>
 
             {/* Language Selector */}
-            <Select defaultValue="en">
+            <Select defaultValue={locale} onValueChange={onLanguageChange} disabled={isPending}>
               <SelectTrigger
                 id={`language-${id}`}
                 className="h-9 w-[70px] border-none bg-accent/30 rounded-full px-3 text-xs font-medium shadow-none focus:ring-0"
@@ -172,3 +186,4 @@ export default function Navbar() {
     </header>
   );
 }
+

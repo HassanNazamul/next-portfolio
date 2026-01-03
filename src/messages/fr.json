@@ -1,0 +1,95 @@
+{
+    "Navbar": {
+        "about": "À Propos",
+        "experience": "Expérience",
+        "projects": "Projets",
+        "contact": "Contact",
+        "en": "En",
+        "fr": "Fr"
+    },
+    "Hero": {
+        "available": "Disponible pour travailler",
+        "greeting": "Bonjour, je suis",
+        "role": "Développeur Full-Stack",
+        "description": "Création de produits numériques évolutifs, fiables et percutants sur les plateformes web, mobiles et backend.",
+        "primaryButton": "Commencer",
+        "secondaryButton": "Contactez-moi"
+    },
+    "About": {
+        "title": "À Propos de Moi",
+        "p1": "Je conçois des produits numériques performants et évolutifs en mettant l'accent sur <highlight>Next.js, Java et les Microservices</highlight>. Mon travail allie architecture propre, interface utilisateur réfléchie et ingénierie prête pour la production afin de livrer des systèmes fiables à grande échelle.",
+        "p2": "Je conçois et implémente des solutions pour <highlight>le web, les backends Node.js, Android et iOS</highlight>, garantissant des performances et une expérience utilisateur cohérentes sur tous les appareils.",
+        "p3": "J'aime simplifier les problèmes complexes, optimiser les performances et créer des systèmes maintenables. Mon objectif est de livrer des produits non seulement fonctionnels, mais élégants, fiables et percutants.",
+        "skillsTitle": "Technologies et Compétences",
+        "categories": {
+            "frontend": "Frontend",
+            "backend": "Backend",
+            "mobile": "Mobile",
+            "databases": "Bases de données",
+            "devops": "DevOps et Outils",
+            "practices": "Pratiques"
+        }
+    },
+    "Experience": {
+        "title": "Expérience",
+        "subtitle": "Mon parcours professionnel dans le développement logiciel.",
+        "jobs": {
+            "job1": {
+                "role": "Développeur Logiciel",
+                "company": "Kyrotics – Startup de Solutions IA",
+                "period": "Oct 2024 - Déc 2024",
+                "period2": "& Juil 2025 - Sep 2025",
+                "location": "Télétravail",
+                "description": [
+                    "Contribution à un outil de comparaison améliorant l'efficacité de la révision de contenu IA.",
+                    "Optimisation des performances via Redis Caching, réduisant le temps de réponse de 55% et la charge backend de 30%.",
+                    "Refactoring des points de terminaison API, réduisant la charge système et le stress backend pour une performance accrue.",
+                    "Collaboration pour identifier les problèmes et offrir des retours exploitables, permettant une meilleure prise de décision."
+                ]
+            },
+            "job2": {
+                "role": "Développeur Logiciel Junior",
+                "company": "Skill Squirrel",
+                "period": "Jan 2024 - Avr 2024",
+                "location": "Mississauga, ON",
+                "description": [
+                    "Développement d'une interface utilisateur interactive avec React, assurant une expérience utilisateur fluide et moderne.",
+                    "Refactoring du CSS redondant en un design totalement réactif, assurant une compatibilité multi-appareils de 100%.",
+                    "Mise en œuvre des normes d'accessibilité WCAG, améliorant la plateforme pour les utilisateurs handicapés.",
+                    "Collaboration au sein d'une équipe Agile pour livrer des composants de haute qualité grâce à des revues rigoureuses."
+                ]
+            }
+        }
+    },
+    "Projects": {
+        "title": "Projets",
+        "viewGithub": "Voir sur GitHub →",
+        "techStack": "Tech Stack :",
+        "list": {
+            "project1": {
+                "name": "Projet Un",
+                "description": "Ceci est une brève description du projet — ce qu'il fait, le problème qu'il résout ou la technologie derrière."
+            },
+            "project2": {
+                "name": "Projet Deux",
+                "description": "Un autre projet avec une stack et un objectif différents."
+            }
+        }
+    },
+    "Contact": {
+        "title": "Me Contacter",
+        "subtitle": "Ouvert aux postes où je peux livrer des produits numériques percutants — connectons-nous !",
+        "name": "Nom",
+        "email": "Adresse Email",
+        "message": "Message",
+        "placeholders": {
+            "name": "Tyler Durden",
+            "email": "projectmayhem@fc.com",
+            "message": "Tapez votre message ici..."
+        },
+        "send": "Envoyer le Message",
+        "sending": "Envoi...",
+        "success": "Message envoyé avec succès !",
+        "error": "Échec de l'envoi du message. Veuillez réessayer."
+    }
+}
