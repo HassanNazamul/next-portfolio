@@ -67,12 +67,24 @@
         "techStack": "Tech Stack:",
         "list": {
             "project1": {
-                "name": "Project One",
-                "description": "This is a short description of the project — what it does, the problem it solves, or the tech behind it."
+                "title": "Project Alpha",
+                "briefDescription": "A revolutionary AI-driven analytics dashboard.",
+                "fullDescription": "Project Alpha leverages advanced machine learning algorithms to provide real-time insights into business performance. It features a scalable architecture designed to handle petabytes of data with ease. The user interface is intuitive, allowing non-technical users to build complex queries."
             },
             "project2": {
-                "name": "Project Two",
-                "description": "Another project with different stack and purpose."
+                "title": "Project Beta",
+                "briefDescription": "E-commerce platform with microservices architecture.",
+                "fullDescription": "Project Beta is a high-performance e-commerce solution built on a microservices application. It ensures high availability and fault tolerance. Key features include a recommendation engine, seamless payment integration, and a robust inventory management system."
+            },
+            "project3": {
+                "title": "Project Gamma",
+                "briefDescription": "Social network for developers.",
+                "fullDescription": "Project Gamma connects developers worldwide. It allows users to showcase their portfolios, collaborate on open-source projects, and find job opportunities. The platform supports code snippets, real-time messaging, and community forums."
+            },
+            "project4": {
+                "title": "Project Delta",
+                "briefDescription": "IoT fleet management system.",
+                "fullDescription": "Project Delta enables real-time tracking and management of large vehicle fleets. Utilizing IoT sensors, it monitors vehicle health, driver behavior, and fuel consumption. The system provides actionable alerts and detailed reporting."
             }
         }
     },

@@ -2,10 +2,11 @@
 
 import Experience from '@/components/experience';
 import Hero from '@/components/hero';
-import Project from '@/components/project';
+
 import { InView } from '@/components/ui/in-view';
 import ContactMe from '@/components/contact-me';
 import AboutMe from '@/components/about';
+import { ProjectShowcase } from "@/components/project-showcase";
 
 export default function HomePage() {
     return (
@@ -97,7 +98,7 @@ export default function HomePage() {
                 transition={{ duration: 0.3, ease: 'easeInOut' }}
                 viewOptions={{ margin: '0px 0px -350px 0px' }}
             >
-                <Project />
+                <ProjectShowcase />
             </InView>
 
             <InView

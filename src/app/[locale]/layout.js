@@ -1,6 +1,7 @@
 import "@/app/globals.css";
 import Navbar from "@/components/navbar";
 import BackgroundWrapper from "@/components/background-wrapper";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
@@ -26,6 +27,7 @@ export default async function LocaleLayout({ children, params }) {
     return (
         <html lang={locale} suppressHydrationWarning>
             <body className="antialiased">
+                <GoogleAnalytics />
                 <NextIntlClientProvider messages={messages}>
                     <BackgroundWrapper />
                     <Navbar />
