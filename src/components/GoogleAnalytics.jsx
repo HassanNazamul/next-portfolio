@@ -44,7 +44,7 @@ export default function GoogleAnalytics() {
     useEffect(() => {
         if (!isMounted) return;
 
-        // --- 1. Scroll Tracking ---
+        // Scroll Tracking ---
         // Tracks how far down the page the user has scrolled
         const handleScroll = () => {
             const h = document.documentElement;
@@ -69,7 +69,7 @@ export default function GoogleAnalytics() {
             });
         };
 
-        // --- 2. Time on Page Tracking ---
+        // Time on Page Tracking ---
         // Tracks how long the user stays on the page
         const intervalId = setInterval(() => {
             const elapsed = Math.floor((Date.now() - startTime.current) / 1000);
@@ -86,7 +86,7 @@ export default function GoogleAnalytics() {
             });
         }, 1000);
 
-        // --- 3. Click Tracking (Delegate) ---
+        //  Click Tracking (Delegate) ---
         // Tracks clicks on links and buttons, categorizing them based on href or text
         const handleClick = (e) => {
             const el = e.target.closest('a, button');
@@ -122,7 +122,7 @@ export default function GoogleAnalytics() {
             event({ action, category, label });
         };
 
-        // --- 4. Form Submit Tracking (Delegate) ---
+        //  Form Submit Tracking (Delegate) ---
         // Tracks form submissions
         const handleSubmit = (e) => {
             // Best effort for finding which form

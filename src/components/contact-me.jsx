@@ -8,9 +8,6 @@ import emailjs from '@emailjs/browser';
 import { useTranslations } from "next-intl";
 
 // Custom Textarea component inheriting the Input style logic
-/**
- * A custom textarea component that mimics the Input style with a radial gradient hover effect.
- */
 const TextArea = React.forwardRef(({ className, ...props }, ref) => {
     const radius = 100;
     const [visible, setVisible] = React.useState(false);
@@ -64,7 +61,6 @@ export default function ContactMe() {
 
     /**
      * Handles form submission to EmailJS.
-     * @param {Event} e - Form submission event.
      */
     const handleSubmit = (e) => {
         e.preventDefault();

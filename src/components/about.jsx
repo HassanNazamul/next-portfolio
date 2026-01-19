@@ -5,12 +5,8 @@ import { useTranslations } from "next-intl";
 /**
  * AboutMe Component
  * Displays personal information and skills categorized by tech stack.
- *
- * @param {Object} props - Component props.
- * @param {number} props.maxTilt - Maximum tilt angle for hover effect (unused currently).
- * @param {number} props.perspective - CSS perspective for 3D capability (unused currently).
  */
-export default function AboutMe({ maxTilt, perspective }) {
+export default function AboutMe() {
     const t = useTranslations('About');
 
     // Variants for stagger animation of skill cards

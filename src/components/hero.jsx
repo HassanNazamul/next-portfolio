@@ -6,13 +6,11 @@ import { useTranslations } from "next-intl";
 
 /**
  * Hero Component
- * Displays the main introduction, availability status, and call-to-action buttons.
  */
 const Hero = () => {
   const t = useTranslations('Hero');
 
-  const title = "Mohammed Nazamul Hassan"; // Keeping name hardcoded or could be t('name') if localized name needed.
-  // Using t('greeting') for "Hi, I'm"
+  const title = "Mohammed Nazamul Hassan";
 
   return (
     <section id="hero" className="relative w-full min-h-[70vh] flex items-center justify-center overflow-hidden py-12 md:py-24 lg:py-32 bg-background">

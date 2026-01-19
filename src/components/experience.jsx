@@ -5,7 +5,6 @@ import { useTranslations } from "next-intl";
 
 /**
  * Experience Component
- * Displays professional experience timeline with role, company, and description.
  */
 const Experience = () => {
   const t = useTranslations('Experience');
@@ -43,7 +42,7 @@ const Experience = () => {
     },
   ];
 
-  // Animation variants for the container (stagger effect)
+  // Animation variants for the container 
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {

@@ -7,19 +7,72 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } f
 import { Badge } from "./ui/badge";
 import { Card, CardContent } from "./ui/card";
 import { Button } from "./ui/button";
+import { cn } from "@/lib/utils";
+
+// Helper component for simple tabs
+function SequenceViewer({ diagrams }) {
+    const [activeTab, setActiveTab] = useState(diagrams[0].value);
+    const activeDiagram = diagrams.find(d => d.value === activeTab) || diagrams[0];
+
+    return (
+        <div className="w-full h-full flex flex-col">
+            <div className="flex space-x-2 mb-4 overflow-x-auto pb-2 no-visible-scrollbar">
+                {diagrams.map((seq) => (
+                    <button
+                        key={seq.value}
+                        onClick={() => setActiveTab(seq.value)}
+                        className={cn(
+                            "px-4 py-2 rounded-full text-sm font-medium transition-colors whitespace-nowrap border",
+                            activeTab === seq.value
+                                ? "bg-primary text-primary-foreground border-primary"
+                                : "bg-muted text-muted-foreground border-transparent hover:bg-muted/80"
+                        )}
+                    >
+                        {seq.title}
+                    </button>
+                ))}
+            </div>
+
+            <div className="flex-1 relative w-full h-full min-h-[500px] bg-muted/20 rounded-lg border border-border overflow-hidden">
+                {activeDiagram && (
+                    <Image
+                        src={activeDiagram.url}
+                        alt={activeDiagram.title}
+                        fill
+                        className="object-contain p-4"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                    />
+                )}
+            </div>
+        </div>
+    );
+}
 
 // Static data for media and tech stack (language agnostic)
-/**
- * Static project resources containing media URLs and tech stack details.
- * Text content is handled via i18n but linked here by ID.
- */
 const projectResources = [
     {
         id: "project1",
         thumbnail: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop",
         videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
         youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-        architectureDiagram: "https://images.unsplash.com/photo-1558494949-ef526b0042a0?q=80&w=2695&auto=format&fit=crop",
+        architecture: {
+            classDiagram: "https://images.unsplash.com/photo-1558494949-ef526b0042a0?q=80&w=2695&auto=format&fit=crop",
+            erd: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2670&auto=format&fit=crop",
+            highLevelDesign: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2670&auto=format&fit=crop",
+            sequencePreview: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2670&auto=format&fit=crop",
+            sequenceDiagrams: [
+                {
+                    title: "Auth Flow",
+                    value: "auth-flow",
+                    url: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2670&auto=format&fit=crop"
+                },
+                {
+                    title: "Payment Flow",
+                    value: "payment-flow",
+                    url: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2670&auto=format&fit=crop"
+                }
+            ]
+        },
         techStack: ["Next.js", "Python", "TensorFlow"],
     },
     {
@@ -27,7 +80,18 @@ const projectResources = [
         thumbnail: "https://images.unsplash.com/photo-1555421689-d68471e18963?q=80&w=2676&auto=format&fit=crop",
         videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
         youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-        architectureDiagram: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2670&auto=format&fit=crop",
+        architecture: {
+            classDiagram: "https://images.unsplash.com/photo-1558494949-ef526b0042a0?q=80&w=2695&auto=format&fit=crop",
+            erd: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2670&auto=format&fit=crop",
+            highLevelDesign: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2670&auto=format&fit=crop",
+            sequenceDiagrams: [
+                {
+                    title: "User Onboarding",
+                    value: "user-onboarding",
+                    url: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2670&auto=format&fit=crop"
+                }
+            ]
+        },
         techStack: ["Java Spring", "Kafka", "Docker", "Kubernetes"],
     },
     {
@@ -35,7 +99,14 @@ const projectResources = [
         thumbnail: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2670&auto=format&fit=crop",
         videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
         youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-        architectureDiagram: "https://images.unsplash.com/photo-1504639725590-34d0984388bd?q=80&w=2574&auto=format&fit=crop",
+        architecture: {
+            classDiagram: "https://images.unsplash.com/photo-1558494949-ef526b0042a0?q=80&w=2695&auto=format&fit=crop",
+            erd: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2670&auto=format&fit=crop",
+            highLevelDesign: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2670&auto=format&fit=crop",
+            sequenceDiagrams: [
+                { title: "API Request", value: "api-request", url: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2670&auto=format&fit=crop" }
+            ]
+        },
         techStack: ["React", "Node.js", "GraphQL", "MongoDB"],
     },
     {
@@ -43,21 +114,23 @@ const projectResources = [
         thumbnail: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2670&auto=format&fit=crop",
         videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
         youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-        architectureDiagram: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2670&auto=format&fit=crop",
+        architecture: {
+            classDiagram: "https://images.unsplash.com/photo-1558494949-ef526b0042a0?q=80&w=2695&auto=format&fit=crop",
+            erd: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2670&auto=format&fit=crop",
+            highLevelDesign: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2670&auto=format&fit=crop",
+            sequenceDiagrams: [
+                { title: "Sync Process", value: "sync-process", url: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2670&auto=format&fit=crop" }
+            ]
+        },
         techStack: ["Go", "MQTT", "PostgreSQL", "React Native"],
     }
 ];
 
-/**
- * ProjectShowcase Component
- * Displays a grid of project cards that open a detailed modal with video and architecture diagrams.
- */
 export function ProjectShowcase() {
     const t = useTranslations('Projects');
     const [selectedProject, setSelectedProject] = useState(null);
+    const [activeDetail, setActiveDetail] = useState(null);
 
-    // Merge static resources with translated text
-    // This combines the media/tech data with the localized titles and descriptions
     const projects = projectResources.map((res) => ({
         ...res,
         title: t(`list.${res.id}.title`),
@@ -65,7 +138,6 @@ export function ProjectShowcase() {
         fullDescription: t(`list.${res.id}.fullDescription`),
     }));
 
-    // Framer Motion variants for the container (stagger effect)
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
@@ -76,7 +148,6 @@ export function ProjectShowcase() {
         },
     };
 
-    // Framer Motion variants for individual project items
     const itemVariants = {
         hidden: { opacity: 0, y: 20 },
         visible: {
@@ -101,12 +172,6 @@ export function ProjectShowcase() {
                     {t('title')}
                 </h2>
                 <div className="h-1 w-24 bg-primary/20 rounded-full mx-auto"></div>
-                {/* Note: 'subtitle' key doesn't exist in Projects JSON yet, reusing 'title' placeholder or omitting if strictly following JSON. 
-                    However, experience.jsx uses no subtitle here? No, it does: t('subtitle'). 
-                    I'll assume it might be missing and just not render it if empty or add it. 
-                    Actually, I'll comment it out or use a safe check if specific subtitle is desired, 
-                    but for now sticking to what's in JSON for Projects (title, viewGithub).
-                    I will omit the subtitle paragraph to stay safe with existing JSON.*/}
             </motion.div>
 
             <motion.div
@@ -139,6 +204,7 @@ export function ProjectShowcase() {
                 ))}
             </motion.div>
 
+            {/* Main Project Modal */}
             <Dialog open={!!selectedProject} onOpenChange={(open) => !open && setSelectedProject(null)}>
                 <DialogContent className="max-w-7xl max-h-[95vh] overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
                     <DialogHeader>
@@ -148,8 +214,9 @@ export function ProjectShowcase() {
 
                     {selectedProject && (
                         <div className="grid gap-6 mt-4">
-                            {/* Row 1: Video and Architecture */}
+                            {/* Row 1: Video and Architecture Grid Side-by-Side */}
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 h-auto md:h-96">
+                                {/* Video Section */}
                                 <div className="w-full h-64 md:h-full bg-black rounded-lg overflow-hidden flex items-center justify-center">
                                     <video
                                         controls
@@ -159,13 +226,75 @@ export function ProjectShowcase() {
                                         Your browser does not support the video tag.
                                     </video>
                                 </div>
-                                <div className="w-full h-64 md:h-full relative rounded-lg overflow-hidden bg-muted">
-                                    <Image
-                                        src={selectedProject.architectureDiagram}
-                                        alt="Architecture Diagram"
-                                        fill
-                                        className="object-cover"
-                                    />
+
+                                {/* Architecture Grid (2x2) */}
+                                <div className="grid grid-cols-2 grid-rows-2 gap-4 h-64 md:h-full">
+                                    {/* 1. Class Diagram */}
+                                    <div
+                                        className="relative rounded-lg overflow-hidden border border-border cursor-pointer group hover:ring-2 hover:ring-primary transition-all"
+                                        onClick={() => setActiveDetail({ type: 'image', title: 'Class Diagram', content: selectedProject.architecture.classDiagram })}
+                                    >
+                                        <Image
+                                            src={selectedProject.architecture.classDiagram}
+                                            alt="Class Diagram"
+                                            fill
+                                            className="object-cover group-hover:scale-105 transition-transform duration-300"
+                                        />
+                                        <div className="absolute inset-x-0 bottom-0 bg-black/60 p-2 text-white text-xs font-medium text-center backdrop-blur-sm">
+                                            Class Diagram
+                                        </div>
+                                    </div>
+
+                                    {/* 2. ERD */}
+                                    <div
+                                        className="relative rounded-lg overflow-hidden border border-border cursor-pointer group hover:ring-2 hover:ring-primary transition-all"
+                                        onClick={() => setActiveDetail({ type: 'image', title: 'Entity Relationship Diagram', content: selectedProject.architecture.erd })}
+                                    >
+                                        <Image
+                                            src={selectedProject.architecture.erd}
+                                            alt="ERD"
+                                            fill
+                                            className="object-cover group-hover:scale-105 transition-transform duration-300"
+                                        />
+                                        <div className="absolute inset-x-0 bottom-0 bg-black/60 p-2 text-white text-xs font-medium text-center backdrop-blur-sm">
+                                            ERD
+                                        </div>
+                                    </div>
+
+                                    {/* 3. HLD */}
+                                    <div
+                                        className="relative rounded-lg overflow-hidden border border-border cursor-pointer group hover:ring-2 hover:ring-primary transition-all"
+                                        onClick={() => setActiveDetail({ type: 'image', title: 'High Level Design', content: selectedProject.architecture.highLevelDesign })}
+                                    >
+                                        <Image
+                                            src={selectedProject.architecture.highLevelDesign}
+                                            alt="High Level Design"
+                                            fill
+                                            className="object-cover group-hover:scale-105 transition-transform duration-300"
+                                        />
+                                        <div className="absolute inset-x-0 bottom-0 bg-black/60 p-2 text-white text-xs font-medium text-center backdrop-blur-sm">
+                                            High Level Design
+                                        </div>
+                                    </div>
+
+                                    {/* 4. Sequence Diagrams */}
+                                    <div
+                                        className="relative rounded-lg overflow-hidden border border-border bg-muted cursor-pointer group hover:ring-2 hover:ring-primary transition-all flex items-center justify-center"
+                                        onClick={() => setActiveDetail({ type: 'sequence', title: 'Sequence Diagrams', content: selectedProject.architecture.sequenceDiagrams })}
+                                    >
+                                        <Image
+                                            src={selectedProject.architecture.sequencePreview || selectedProject.architecture.sequenceDiagrams[0].url}
+                                            alt="Sequence Diagrams"
+                                            fill
+                                            className="object-cover group-hover:scale-105 transition-transform duration-300 opacity-50"
+                                        />
+                                        <div className="z-10 bg-background/80 px-3 py-1 rounded-full text-foreground text-sm font-semibold shadow-sm">
+                                            View Sequence
+                                        </div>
+                                        <div className="absolute inset-x-0 bottom-0 bg-black/60 p-2 text-white text-xs font-medium text-center backdrop-blur-sm">
+                                            Sequence Diagrams
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
@@ -202,6 +331,36 @@ export function ProjectShowcase() {
                     )}
                 </DialogContent>
             </Dialog>
+
+            {/* Nested Detail Modal */}
+            <Dialog open={!!activeDetail} onOpenChange={(open) => !open && setActiveDetail(null)}>
+                <DialogContent className="max-w-6xl max-h-[95vh] w-full overflow-hidden flex flex-col">
+                    <DialogHeader>
+                        <DialogTitle className="text-xl font-bold">{activeDetail?.title}</DialogTitle>
+                        <DialogDescription className="hidden">Detailed View</DialogDescription>
+                    </DialogHeader>
+
+                    <div className="flex-1 min-h-[50vh] mt-4 relative">
+                        {activeDetail?.type === 'image' && (
+                            <div className="relative w-full h-full min-h-[60vh] rounded-md overflow-hidden bg-muted/20">
+                                <Image
+                                    src={activeDetail.content}
+                                    alt={activeDetail.title}
+                                    fill
+                                    className="object-contain"
+                                />
+                            </div>
+                        )}
+
+                        {activeDetail?.type === 'sequence' && (
+                            <div className="w-full h-full min-h-[60vh]">
+                                <SequenceViewer diagrams={activeDetail.content} />
+                            </div>
+                        )}
+                    </div>
+                </DialogContent>
+            </Dialog>
+
         </section>
     );
 }
