@@ -5,6 +5,11 @@ import { MoonIcon, SunIcon } from "lucide-react"
 
 import { Toggle } from "@/components/ui/toggle"
 
+/**
+ * ThemeToggle Component
+ * Allows users to switch between light and dark modes.
+ * Persists preference to localStorage and updates the DOM class.
+ */
 export default function ThemeToggle() {
   // Use a function to initialize state from localStorage or default to "light"
   const [theme, setTheme] = useState(() => {
@@ -14,7 +19,7 @@ export default function ThemeToggle() {
     return "dark"; // Default to dark on server-side
   });
 
-  // 2. Use useEffect to update the theme on the HTML element and save it
+  // Use useEffect to update the theme on the HTML element and save it
   useEffect(() => {
     const htmlElement = document.documentElement;
 

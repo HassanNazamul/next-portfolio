@@ -9,6 +9,10 @@ import { Card, CardContent } from "./ui/card";
 import { Button } from "./ui/button";
 
 // Static data for media and tech stack (language agnostic)
+/**
+ * Static project resources containing media URLs and tech stack details.
+ * Text content is handled via i18n but linked here by ID.
+ */
 const projectResources = [
     {
         id: "project1",
@@ -44,11 +48,16 @@ const projectResources = [
     }
 ];
 
+/**
+ * ProjectShowcase Component
+ * Displays a grid of project cards that open a detailed modal with video and architecture diagrams.
+ */
 export function ProjectShowcase() {
     const t = useTranslations('Projects');
     const [selectedProject, setSelectedProject] = useState(null);
 
     // Merge static resources with translated text
+    // This combines the media/tech data with the localized titles and descriptions
     const projects = projectResources.map((res) => ({
         ...res,
         title: t(`list.${res.id}.title`),
@@ -56,6 +65,7 @@ export function ProjectShowcase() {
         fullDescription: t(`list.${res.id}.fullDescription`),
     }));
 
+    // Framer Motion variants for the container (stagger effect)
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
@@ -66,6 +76,7 @@ export function ProjectShowcase() {
         },
     };
 
+    // Framer Motion variants for individual project items
     const itemVariants = {
         hidden: { opacity: 0, y: 20 },
         visible: {

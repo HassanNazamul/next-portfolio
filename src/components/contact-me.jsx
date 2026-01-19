@@ -8,6 +8,9 @@ import emailjs from '@emailjs/browser';
 import { useTranslations } from "next-intl";
 
 // Custom Textarea component inheriting the Input style logic
+/**
+ * A custom textarea component that mimics the Input style with a radial gradient hover effect.
+ */
 const TextArea = React.forwardRef(({ className, ...props }, ref) => {
     const radius = 100;
     const [visible, setVisible] = React.useState(false);
@@ -23,6 +26,7 @@ const TextArea = React.forwardRef(({ className, ...props }, ref) => {
     return (
         <motion.div
             style={{
+                // Radial gradient tracking the mouse cursor
                 background: useMotionTemplate`
         radial-gradient(
           ${visible ? radius + "px" : "0px"} circle at ${mouseX}px ${mouseY}px,
@@ -49,11 +53,19 @@ const TextArea = React.forwardRef(({ className, ...props }, ref) => {
 });
 TextArea.displayName = "TextArea";
 
+/**
+ * ContactMe Component
+ * Displays a contact form with EmailJS integration for sending messages.
+ */
 export default function ContactMe() {
     const t = useTranslations('Contact');
     const form = useRef();
     const [status, setStatus] = useState({ loading: false, success: false, error: null });
 
+    /**
+     * Handles form submission to EmailJS.
+     * @param {Event} e - Form submission event.
+     */
     const handleSubmit = (e) => {
         e.preventDefault();
         setStatus({ loading: true, success: false, error: null });

@@ -5,6 +5,16 @@ import Script from 'next/script';
 import { useEffect, useState, useRef } from 'react';
 import { GA_TRACKING_ID, pageview, event } from '../lib/ga';
 
+/**
+ * GoogleAnalytics Component
+ * 
+ * Handles Google Analytics integration including:
+ * - Pageview tracking on route changes.
+ * - Scroll depth tracking (25%, 50%, 75%, 100%).
+ * - Time on page tracking (10s, 30s, 60s, 120s).
+ * - Auto-tracking of clicks on external links and specific buttons (GitHub, LinkedIn, etc.).
+ * - Basic form submission tracking.
+ */
 export default function GoogleAnalytics() {
     const pathname = usePathname();
     const searchParams = useSearchParams();
@@ -35,6 +45,7 @@ export default function GoogleAnalytics() {
         if (!isMounted) return;
 
         // --- 1. Scroll Tracking ---
+        // Tracks how far down the page the user has scrolled
         const handleScroll = () => {
             const h = document.documentElement;
             const b = document.body;
@@ -59,6 +70,7 @@ export default function GoogleAnalytics() {
         };
 
         // --- 2. Time on Page Tracking ---
+        // Tracks how long the user stays on the page
         const intervalId = setInterval(() => {
             const elapsed = Math.floor((Date.now() - startTime.current) / 1000);
             [10, 30, 60, 120].forEach((milestone) => {
@@ -75,6 +87,7 @@ export default function GoogleAnalytics() {
         }, 1000);
 
         // --- 3. Click Tracking (Delegate) ---
+        // Tracks clicks on links and buttons, categorizing them based on href or text
         const handleClick = (e) => {
             const el = e.target.closest('a, button');
             if (!el) return;
@@ -110,6 +123,7 @@ export default function GoogleAnalytics() {
         };
 
         // --- 4. Form Submit Tracking (Delegate) ---
+        // Tracks form submissions
         const handleSubmit = (e) => {
             // Best effort for finding which form
             const form = e.target.closest('form');

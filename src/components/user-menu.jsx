@@ -11,6 +11,11 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 
+/**
+ * UserMenu Component
+ * Displays the user's avatar and a dropdown menu with user details.
+ * Currently hardcoded for demonstration purposes.
+ */
 export default function UserMenu() {
   return (
     <DropdownMenu>

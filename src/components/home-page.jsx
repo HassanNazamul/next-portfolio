@@ -8,6 +8,12 @@ import ContactMe from '@/components/contact-me';
 import AboutMe from '@/components/about';
 import { ProjectShowcase } from "@/components/project-showcase";
 
+/**
+ * HomePage Component
+ * 
+ * This is the main landing page component that orchestrates the layout of various sections.
+ * It uses the InView component to trigger animations as the user scrolls through the page.
+ */
 export default function HomePage() {
     return (
         <>

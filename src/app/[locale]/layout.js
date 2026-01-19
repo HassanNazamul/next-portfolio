@@ -7,11 +7,25 @@ import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 
+// Metadata for the application
 export const metadata = {
     title: "My Portfolio",
     description: "Portfolio",
 };
 
+/**
+ * LocaleLayout Component
+ * 
+ * The root layout for the internationalized application.
+ * It handles:
+ * - Locale validation.
+ * - Loading messages for the client.
+ * - Wrapping the app in providers (NextIntl, Theme).
+ * 
+ * @param {Object} props - Layout props.
+ * @param {React.ReactNode} props.children - Child components.
+ * @param {Object} props.params - Route parameters (contains locale).
+ */
 export default async function LocaleLayout({ children, params }) {
     const { locale } = await params;
 

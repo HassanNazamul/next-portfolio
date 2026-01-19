@@ -4,6 +4,10 @@ import { GradientText } from "@/components/ui/shadcn-io/gradient-text/index";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 
+/**
+ * Hero Component
+ * Displays the main introduction, availability status, and call-to-action buttons.
+ */
 const Hero = () => {
   const t = useTranslations('Hero');
 
@@ -29,6 +33,7 @@ const Hero = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
+          // Staggered delay for the heading
           transition={{ delay: 0.1, duration: 0.6, ease: "easeOut" }}
           className="space-y-4 max-w-4xl"
         >

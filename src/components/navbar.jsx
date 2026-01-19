@@ -28,7 +28,7 @@ export default function Navbar() {
   const id = useId();
   const [isOpen, setIsOpen] = useState(false);
 
-  // Navigation links
+  // Navigation links configuration
   const navigationLinks = [
     { to: "about", label: t('about') },
     { to: "experience", label: t('experience') },
@@ -36,7 +36,7 @@ export default function Navbar() {
     { to: "contact", label: t('contact') },
   ]
 
-  // Language options
+  // Supported languages configuration
   const languages = [
     { value: "en", label: t('en') },
     { value: "fr", label: t('fr') },
@@ -44,12 +44,16 @@ export default function Navbar() {
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
-  // Scroll to top handler for Logo
+  // Scroll to top handler for Logo click
   const scrollToTop = () => {
     scroll.scrollToTop();
     setIsOpen(false);
   };
 
+  /**
+   * Handles language change by replacing the current route with the new locale.
+   * @param {string} value - The new locale code (e.g., 'en', 'fr').
+   */
   const onLanguageChange = (value) => {
     startTransition(() => {
       router.replace(pathname, { locale: value });

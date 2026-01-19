@@ -3,9 +3,14 @@ import { motion } from "framer-motion";
 import { FaCalendarAlt, FaMapMarkerAlt, FaBriefcase } from "react-icons/fa";
 import { useTranslations } from "next-intl";
 
+/**
+ * Experience Component
+ * Displays professional experience timeline with role, company, and description.
+ */
 const Experience = () => {
   const t = useTranslations('Experience');
 
+  // Static structure for experience data, populated with translations
   const experiences = [
     {
       role: t('jobs.job1.role'),
@@ -38,6 +43,7 @@ const Experience = () => {
     },
   ];
 
+  // Animation variants for the container (stagger effect)
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -48,6 +54,7 @@ const Experience = () => {
     },
   };
 
+  // Animation variants for individual experience cards
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {

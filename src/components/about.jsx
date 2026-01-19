@@ -2,9 +2,18 @@ import { FaReact, FaServer, FaMobileAlt, FaDatabase, FaToolbox, FaCode } from "r
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 
+/**
+ * AboutMe Component
+ * Displays personal information and skills categorized by tech stack.
+ *
+ * @param {Object} props - Component props.
+ * @param {number} props.maxTilt - Maximum tilt angle for hover effect (unused currently).
+ * @param {number} props.perspective - CSS perspective for 3D capability (unused currently).
+ */
 export default function AboutMe({ maxTilt, perspective }) {
     const t = useTranslations('About');
 
+    // Variants for stagger animation of skill cards
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
@@ -15,6 +24,7 @@ export default function AboutMe({ maxTilt, perspective }) {
         }
     };
 
+    // Variants for individual skill cards
     const itemVariants = {
         hidden: { opacity: 0, y: 20 },
         visible: {
