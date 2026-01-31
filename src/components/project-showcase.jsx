@@ -9,6 +9,65 @@ import { Card, CardContent } from "./ui/card";
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
 
+// Helper component for zoomable image
+function ZoomableImage({ src, alt }) {
+    const [scale, setScale] = useState(1);
+    const [position, setPosition] = useState({ x: 0, y: 0 });
+
+    const handleZoomIn = () => setScale((s) => Math.min(s + 0.5, 5));
+    const handleZoomOut = () => setScale((s) => Math.max(s - 0.5, 0.5));
+    const handleReset = () => {
+        setScale(1);
+        setPosition({ x: 0, y: 0 });
+    };
+
+    return (
+        <div className="relative w-full h-full overflow-hidden bg-muted/20 rounded-lg border border-border group/zoom">
+            {/* Controls */}
+            <div className="absolute top-4 right-4 z-20 flex flex-col gap-2 opacity-0 group-hover/zoom:opacity-100 transition-opacity">
+                <Button variant="secondary" size="icon" onClick={handleZoomIn} className="h-8 w-8 bg-background/80 backdrop-blur-sm shadow-sm" title="Zoom In">
+                    +
+                </Button>
+                <Button variant="secondary" size="icon" onClick={handleZoomOut} className="h-8 w-8 bg-background/80 backdrop-blur-sm shadow-sm" title="Zoom Out">
+                    -
+                </Button>
+                <Button variant="secondary" size="icon" onClick={handleReset} className="h-8 w-8 bg-background/80 backdrop-blur-sm shadow-sm" title="Reset View">
+                    ↺
+                </Button>
+            </div>
+
+            {/* Hint overlay */}
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 pointer-events-none opacity-0 group-hover/zoom:opacity-100 transition-opacity">
+                <Badge variant="secondary" className="bg-background/80 backdrop-blur-sm text-xs shadow-sm">
+                    Scroll to zoom • Drag to pan
+                </Badge>
+            </div>
+
+            <motion.div
+                className="w-full h-full cursor-grab active:cursor-grabbing"
+                drag
+                dragConstraints={{ left: -1000, right: 1000, top: -1000, bottom: 1000 }}
+                animate={{ scale, x: position.x, y: position.y }}
+                onDragEnd={(e, { offset }) => setPosition({ x: position.x + offset.x, y: position.y + offset.y })}
+                onWheel={(e) => {
+                    e.ctrlKey ? null : e.stopPropagation(); // prevent page scroll if wanted, or just standard behavior
+                    if (e.deltaY < 0) handleZoomIn();
+                    else handleZoomOut();
+                }}
+            >
+                <div className="relative w-full h-full min-h-[500px]">
+                    <Image
+                        src={src}
+                        alt={alt}
+                        fill
+                        className="object-contain pointer-events-none"
+                    />
+                </div>
+            </motion.div>
+        </div>
+    );
+}
+
 // Helper component for simple tabs
 function SequenceViewer({ diagrams }) {
     const [activeTab, setActiveTab] = useState(diagrams[0].value);
@@ -33,15 +92,9 @@ function SequenceViewer({ diagrams }) {
                 ))}
             </div>
 
-            <div className="flex-1 relative w-full h-full min-h-[500px] bg-muted/20 rounded-lg border border-border overflow-hidden">
+            <div className="flex-1 w-full h-full min-h-[500px]">
                 {activeDiagram && (
-                    <Image
-                        src={activeDiagram.url}
-                        alt={activeDiagram.title}
-                        fill
-                        className="object-contain p-4"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
-                    />
+                    <ZoomableImage src={activeDiagram.url} alt={activeDiagram.title} />
                 )}
             </div>
         </div>
@@ -64,12 +117,22 @@ const projectResources = [
                 {
                     title: "Auth Flow",
                     value: "auth-flow",
-                    url: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2670&auto=format&fit=crop"
+                    url: "/project/p1/Login-OTPRequest.svg"
                 },
                 {
-                    title: "Payment Flow",
-                    value: "payment-flow",
-                    url: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2670&auto=format&fit=crop"
+                    title: "Otp Verification & JWT Creation",
+                    value: "otp-verification-jwt-creation",
+                    url: "/project/p1/OTP-Verification-JWT-Creation.svg"
+                },
+                {
+                    title: "Accessing Chat",
+                    value: "accessing-chat",
+                    url: "/project/p1/Accessing-Protected-APIs.svg"
+                },
+                {
+                    title: "Real Time Message Flow",
+                    value: "Real-Time Message",
+                    url: "/project/p1/Real-Time-Message-Flow.svg"
                 }
             ]
         },
@@ -342,13 +405,8 @@ export function ProjectShowcase() {
 
                     <div className="flex-1 min-h-[50vh] mt-4 relative">
                         {activeDetail?.type === 'image' && (
-                            <div className="relative w-full h-full min-h-[60vh] rounded-md overflow-hidden bg-muted/20">
-                                <Image
-                                    src={activeDetail.content}
-                                    alt={activeDetail.title}
-                                    fill
-                                    className="object-contain"
-                                />
+                            <div className="w-full h-full min-h-[60vh]">
+                                <ZoomableImage src={activeDetail.content} alt={activeDetail.title} />
                             </div>
                         )}
 
