@@ -109,10 +109,10 @@ const projectResources = [
         videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
         youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
         architecture: {
-            classDiagram: "https://images.unsplash.com/photo-1558494949-ef526b0042a0?q=80&w=2695&auto=format&fit=crop",
-            erd: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2670&auto=format&fit=crop",
-            highLevelDesign: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2670&auto=format&fit=crop",
-            sequencePreview: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2670&auto=format&fit=crop",
+            // classDiagram: "https://images.unsplash.com/photo-1558494949-ef526b0042a0?q=80&w=2695&auto=format&fit=crop",
+            erd: "/project/p1/ERD.svg",
+            highLevelDesign: "/project/p1/HLD.svg",
+            sequencePreview: "/project/p1/Login-OTPRequest.svg",
             sequenceDiagrams: [
                 {
                     title: "Auth Flow",
