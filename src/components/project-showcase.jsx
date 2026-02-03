@@ -293,71 +293,79 @@ export function ProjectShowcase() {
                                 {/* Architecture Grid (2x2) */}
                                 <div className="grid grid-cols-2 grid-rows-2 gap-4 h-64 md:h-full">
                                     {/* 1. Class Diagram */}
-                                    <div
-                                        className="relative rounded-lg overflow-hidden border border-border cursor-pointer group hover:ring-2 hover:ring-primary transition-all"
-                                        onClick={() => setActiveDetail({ type: 'image', title: 'Class Diagram', content: selectedProject.architecture.classDiagram })}
-                                    >
-                                        <Image
-                                            src={selectedProject.architecture.classDiagram}
-                                            alt="Class Diagram"
-                                            fill
-                                            className="object-cover group-hover:scale-105 transition-transform duration-300"
-                                        />
-                                        <div className="absolute inset-x-0 bottom-0 bg-black/60 p-2 text-white text-xs font-medium text-center backdrop-blur-sm">
-                                            Class Diagram
+                                    {selectedProject.architecture.classDiagram && (
+                                        <div
+                                            className="relative rounded-lg overflow-hidden border border-border cursor-pointer group hover:ring-2 hover:ring-primary transition-all"
+                                            onClick={() => setActiveDetail({ type: 'image', title: 'Class Diagram', content: selectedProject.architecture.classDiagram })}
+                                        >
+                                            <Image
+                                                src={selectedProject.architecture.classDiagram}
+                                                alt="Class Diagram"
+                                                fill
+                                                className="object-cover group-hover:scale-105 transition-transform duration-300"
+                                            />
+                                            <div className="absolute inset-x-0 bottom-0 bg-black/60 p-2 text-white text-xs font-medium text-center backdrop-blur-sm">
+                                                Class Diagram
+                                            </div>
                                         </div>
-                                    </div>
+                                    )}
 
                                     {/* 2. ERD */}
-                                    <div
-                                        className="relative rounded-lg overflow-hidden border border-border cursor-pointer group hover:ring-2 hover:ring-primary transition-all"
-                                        onClick={() => setActiveDetail({ type: 'image', title: 'Entity Relationship Diagram', content: selectedProject.architecture.erd })}
-                                    >
-                                        <Image
-                                            src={selectedProject.architecture.erd}
-                                            alt="ERD"
-                                            fill
-                                            className="object-cover group-hover:scale-105 transition-transform duration-300"
-                                        />
-                                        <div className="absolute inset-x-0 bottom-0 bg-black/60 p-2 text-white text-xs font-medium text-center backdrop-blur-sm">
-                                            ERD
+                                    {selectedProject.architecture.erd && (
+                                        <div
+                                            className="relative rounded-lg overflow-hidden border border-border cursor-pointer group hover:ring-2 hover:ring-primary transition-all"
+                                            onClick={() => setActiveDetail({ type: 'image', title: 'Entity Relationship Diagram', content: selectedProject.architecture.erd })}
+                                        >
+                                            <Image
+                                                src={selectedProject.architecture.erd}
+                                                alt="ERD"
+                                                fill
+                                                className="object-cover group-hover:scale-105 transition-transform duration-300"
+                                            />
+                                            <div className="absolute inset-x-0 bottom-0 bg-black/60 p-2 text-white text-xs font-medium text-center backdrop-blur-sm">
+                                                ERD
+                                            </div>
                                         </div>
-                                    </div>
+                                    )}
 
                                     {/* 3. HLD */}
-                                    <div
-                                        className="relative rounded-lg overflow-hidden border border-border cursor-pointer group hover:ring-2 hover:ring-primary transition-all"
-                                        onClick={() => setActiveDetail({ type: 'image', title: 'High Level Design', content: selectedProject.architecture.highLevelDesign })}
-                                    >
-                                        <Image
-                                            src={selectedProject.architecture.highLevelDesign}
-                                            alt="High Level Design"
-                                            fill
-                                            className="object-cover group-hover:scale-105 transition-transform duration-300"
-                                        />
-                                        <div className="absolute inset-x-0 bottom-0 bg-black/60 p-2 text-white text-xs font-medium text-center backdrop-blur-sm">
-                                            High Level Design
+                                    {selectedProject.architecture.highLevelDesign && (
+                                        <div
+                                            className="relative rounded-lg overflow-hidden border border-border cursor-pointer group hover:ring-2 hover:ring-primary transition-all"
+                                            onClick={() => setActiveDetail({ type: 'image', title: 'High Level Design', content: selectedProject.architecture.highLevelDesign })}
+                                        >
+                                            <Image
+                                                src={selectedProject.architecture.highLevelDesign}
+                                                alt="High Level Design"
+                                                fill
+                                                className="object-cover group-hover:scale-105 transition-transform duration-300"
+                                            />
+                                            <div className="absolute inset-x-0 bottom-0 bg-black/60 p-2 text-white text-xs font-medium text-center backdrop-blur-sm">
+                                                High Level Design
+                                            </div>
                                         </div>
-                                    </div>
+                                    )}
 
                                     {/* 4. Sequence Diagrams */}
-                                    <div
-                                        className="relative rounded-lg overflow-hidden border border-border bg-muted cursor-pointer group hover:ring-2 hover:ring-primary transition-all flex items-center justify-center"
-                                        onClick={() => setActiveDetail({ type: 'sequence', title: 'Sequence Diagrams', content: selectedProject.architecture.sequenceDiagrams })}
-                                    >
-                                        <Image
-                                            src={selectedProject.architecture.sequencePreview || selectedProject.architecture.sequenceDiagrams[0].url}
-                                            alt="Sequence Diagrams"
-                                            fill
-                                            className="object-cover group-hover:scale-105 transition-transform duration-300 opacity-50"
-                                        />
-                                        <div className="z-10 bg-background/80 px-3 py-1 rounded-full text-foreground text-sm font-semibold shadow-sm">
-                                            View Sequence
+                                    {selectedProject.architecture.sequenceDiagrams && (
+                                        <div
+                                            className="relative rounded-lg overflow-hidden border border-border bg-muted cursor-pointer group hover:ring-2 hover:ring-primary transition-all flex items-center justify-center"
+                                            onClick={() => setActiveDetail({ type: 'sequence', title: 'Sequence Diagrams', content: selectedProject.architecture.sequenceDiagrams })}
+                                        >
+                                            <Image
+                                                src={selectedProject.architecture.sequencePreview || selectedProject.architecture.sequenceDiagrams[0].url}
+                                                alt="Sequence Diagrams"
+                                                fill
+                                                className="object-cover group-hover:scale-105 transition-transform duration-300 opacity-50"
+                                            />
+                                            <div className="z-10 bg-background/80 px-3 py-1 rounded-full text-foreground text-sm font-semibold shadow-sm">
+                                                View Sequence
+                                            </div>
+                                            <div className="absolute inset-x-0 bottom-0 bg-black/60 p-2 text-white text-xs font-medium text-center backdrop-blur-sm">
+                                                Sequence Diagrams
+                                            </div>
                                         </div>
-                                        <div className="absolute inset-x-0 bottom-0 bg-black/60 p-2 text-white text-xs font-medium text-center backdrop-blur-sm">
-                                            Sequence Diagrams
-                                        </div>
-                                    </div>
+                                    )}
                                 </div>
                             </div>
 
