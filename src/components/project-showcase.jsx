@@ -185,6 +185,7 @@ export function ProjectShowcase() {
         title: t(`list.${res.id}.title`),
         briefDescription: t(`list.${res.id}.briefDescription`),
         fullDescription: t(`list.${res.id}.fullDescription`),
+        features: t.has(`list.${res.id}.features`) ? t.raw(`list.${res.id}.features`) : [],
     }));
 
     const containerVariants = {
@@ -360,7 +361,7 @@ export function ProjectShowcase() {
                             </div>
 
                             {/* Row 2: Tech Stack, Description, Read More */}
-                            <div className="space-y-4">
+                            <div className="space-y-8">
                                 <div>
                                     <h4 className="font-semibold mb-2">{t('techStack')}</h4>
                                     {Array.isArray(selectedProject.techStack) ? (
@@ -387,6 +388,31 @@ export function ProjectShowcase() {
                                         </div>
                                     )}
                                 </div>
+
+                                {selectedProject.features && selectedProject.features.length > 0 && (
+                                    <div className="space-y-4">
+                                        <h4 className="text-lg font-semibold border-l-4 border-primary pl-3">
+                                            Key Technical Highlights
+                                        </h4>
+                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+                                            {selectedProject.features.map((feature, index) => {
+                                                const [title, ...descParts] = feature.split(': ');
+                                                const description = descParts.join(': ');
+                                                return (
+                                                    <div key={index} className="space-y-1">
+                                                        <h5 className="font-bold text-sm text-foreground flex items-center gap-2">
+                                                            <div className="h-1 w-1 rounded-full bg-primary" />
+                                                            {title}
+                                                        </h5>
+                                                        <p className="text-sm text-muted-foreground leading-relaxed pl-3">
+                                                            {description}
+                                                        </p>
+                                                    </div>
+                                                );
+                                            })}
+                                        </div>
+                                    </div>
+                                )}
 
 
                                 <div className="pt-2 flex gap-4">

@@ -81,7 +81,13 @@
             "project2": {
                 "title": "Northern",
                 "briefDescription": "Intelligent, distributed travel ecosystem bridging AI inspiration and real-world execution.",
-                "fullDescription": "Northern is an intelligent, distributed travel ecosystem designed to bridge the gap between AI-driven inspiration and real-world execution. By orchestrating Google Gemini’s generative creativity with live data from Google Maps and Ticketmaster, Northern transforms static plans into dynamic, collaborative, and budget-aware itineraries that adapt to reality in real-time."
+                "fullDescription": "Northern is an intelligent, distributed travel ecosystem designed to bridge the gap between AI-driven inspiration and real-world execution. By orchestrating Google Gemini’s generative creativity with live data from Google Maps and Ticketmaster, Northern transforms static plans into dynamic, collaborative, and budget-aware itineraries that adapt to reality in real-time.",
+                "features": [
+                    "AI-Driven Itinerary Engineering: Synthesizes Google Gemini creativity with real-world data to architect multi-day plans, automatically optimizing activity sequencing, local \"vibes,\" and budget-conscious logistics.",
+                    "Asynchronous Data Hydration: Utilizes a high-performance SSE (Server-Sent Events) pipeline to stream rich metadata—including live Ticketmaster events and Google PoI data—ensuring a \"snappy\" UI while populating the itinerary with deep, real-world detail.",
+                    "Real-Time Collaborative Workspace: Powering multi-user synchronization via Spring WebSockets and RabbitMQ, enabling instant drag-and-drop updates, live chat, and a seamless co-planning experience for groups.",
+                    "Resilient Microservices Ecosystem: Built on a scalable Spring Boot and Node.js foundation, protected by a Spring Cloud Gateway with JWT security to maintain data integrity across distributed auth, trip, and collaboration services."
+                ]
             }
         }
     },

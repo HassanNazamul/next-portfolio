@@ -81,7 +81,13 @@
             "project2": {
                 "title": "Northern",
                 "briefDescription": "Écosystème de voyage intelligent et distribué comblant le fossé entre l'inspiration de l'IA et l'exécution réelle.",
-                "fullDescription": "Northern est un écosystème de voyage distribué et intelligent, conçu pour combler le fossé entre l'inspiration générée par l'IA et l'exécution logistique réelle. En orchestrant la créativité générative de Google Gemini avec les données en direct de Google Maps et Ticketmaster, Northern transforme des plans statiques en itinéraires dynamiques, collaboratifs et respectueux du budget, s'adaptant à la réalité en temps réel."
+                "fullDescription": "Northern est un écosystème de voyage distribué et intelligent, conçu pour combler le fossé entre l'inspiration générée par l'IA et l'exécution logistique réelle. En orchestrant la créativité générative de Google Gemini avec les données en direct de Google Maps et Ticketmaster, Northern transforme des plans statiques en itinéraires dynamiques, collaboratifs et respectueux du budget, s'adaptant à la réalité en temps réel.",
+                "features": [
+                    "Ingénierie d'itinéraires pilotée par l'IA : Synthétise la créativité de Google Gemini avec des données réelles pour architecturer des plans sur plusieurs jours, optimisant automatiquement le séquençage des activités, les \"vibes\" locales et la logistique respectueuse du budget.",
+                    "Hydratation asynchrone des données : Utilise un pipeline SSE (Server-Sent Events) haute performance pour diffuser des métadonnées enrichies—incluant les événements Ticketmaster en direct et les données Google PoI—garantissant une interface utilisateur \"réactive\" tout en peuplant l'itinéraire de détails réels profonds.",
+                    "Espace de travail collaboratif en temps réel : Alimente la synchronisation multi-utilisateurs via Spring WebSockets et RabbitMQ, permettant des mises à jour instantanées par glisser-déposer, un chat en direct et une expérience de co-planification fluide pour les groupes.",
+                    "Écosystème de microservices résilient : Construit sur une base évolutive Spring Boot et Node.js, protégé par une passerelle Spring Cloud avec sécurité JWT pour maintenir l'intégrité des données à travers les services distribués d'authentification, de voyage et de collaboration."
+                ]
             }
         }
     },
