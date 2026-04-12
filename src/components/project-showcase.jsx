@@ -144,47 +144,36 @@ const projectResources = [
         videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
         youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
         architecture: {
-            erd: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2670&auto=format&fit=crop",
+            erd: "/project/p2/ERD.drawio.svg",
             highLevelDesign: "/project/p2/HLD-TravelPlanner.drawio.svg",
+            sequencePreview: "/project/p2/trip-generation.svg",
             sequenceDiagrams: [
                 {
-                    title: "User Onboarding",
-                    value: "user-onboarding",
-                    url: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2670&auto=format&fit=crop"
+                    title: "Trip-Generation and Lazy-hydration",
+                    value: "trip-generation",
+                    url: "/project/p2/trip-generation.svg"
+                },
+                {
+                    title: "Real-Time Collaboration and Chat",
+                    value: "real-time-collaboration",
+                    url: "/project/p2/Real-time.svg"
+                },
+                {
+                    title: "Async Trip-Invitation",
+                    value: "async-trip-invitation",
+                    url: "/project/p2/TripInvite.svg"
                 }
             ]
         },
-        techStack: ["Java Spring", "Kafka", "Docker", "Kubernetes"],
-    },
-    {
-        id: "project3",
-        thumbnail: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2670&auto=format&fit=crop",
-        videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
-        youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-        architecture: {
-            erd: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2670&auto=format&fit=crop",
-            highLevelDesign: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2670&auto=format&fit=crop",
-            sequenceDiagrams: [
-                { title: "API Request", value: "api-request", url: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2670&auto=format&fit=crop" }
-            ]
+        techStack: {
+            frontend: ["React", "TypeScript", "Redux Toolkit", "dnd-kit", "STOMP.js & SockJS"],
+            backend: ["Spring Boot (Java)", "Spring Cloud Gateway", "RabbitMQ", "Spring Security", "JWT", "Google OAuth2", "Spring WebSockets (STOMP)"],
+            resources: ["Google Gemini API", "Google Maps & Places API", "Ticketmaster API"],
+            infrastructure: ["Docker & Docker Compose", "Custom Bridge Networks", "Multiple PostgreSQL instances"]
         },
-        techStack: ["React", "Node.js", "GraphQL", "MongoDB"],
     },
-    {
-        id: "project4",
-        thumbnail: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2670&auto=format&fit=crop",
-        videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
-        youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-        architecture: {
-            erd: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2670&auto=format&fit=crop",
-            highLevelDesign: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2670&auto=format&fit=crop",
-            sequenceDiagrams: [
-                { title: "Sync Process", value: "sync-process", url: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2670&auto=format&fit=crop" }
-            ]
-        },
-        techStack: ["Go", "MQTT", "PostgreSQL", "React Native"],
-    }
 ];
+
 
 export function ProjectShowcase() {
     const t = useTranslations('Projects');
@@ -370,11 +359,29 @@ export function ProjectShowcase() {
                             <div className="space-y-4">
                                 <div>
                                     <h4 className="font-semibold mb-2">{t('techStack')}</h4>
-                                    <div className="flex flex-wrap gap-2">
-                                        {selectedProject.techStack.map((tech) => (
-                                            <Badge key={tech} variant="secondary">{tech}</Badge>
-                                        ))}
-                                    </div>
+                                    {Array.isArray(selectedProject.techStack) ? (
+                                        <div className="flex flex-wrap gap-2">
+                                            {selectedProject.techStack.map((tech) => (
+                                                <Badge key={tech} variant="secondary">{tech}</Badge>
+                                            ))}
+                                        </div>
+                                    ) : (
+                                        <div className="space-y-4">
+                                            {Object.entries(selectedProject.techStack).map(([category, techs]) => (
+                                                <div key={category} className="space-y-2">
+                                                    <p className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground/80 flex items-center gap-2">
+                                                        <span className="h-px w-4 bg-border"></span>
+                                                        {t(`categories.${category}`)}
+                                                    </p>
+                                                    <div className="flex flex-wrap gap-2">
+                                                        {techs.map((tech) => (
+                                                            <Badge key={tech} variant="secondary" className="font-medium">{tech}</Badge>
+                                                        ))}
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    )}
                                 </div>
 
                                 <div>

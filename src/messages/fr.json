@@ -65,6 +65,12 @@
         "title": "Projets",
         "viewGithub": "Voir sur GitHub →",
         "techStack": "Tech Stack :",
+        "categories": {
+            "frontend": "Frontend",
+            "backend": "Backend",
+            "resources": "APIs et Ressources",
+            "infrastructure": "Infrastructure"
+        },
         "list": {
             "project1": {
                 "title": "Projet Alpha",
@@ -72,22 +78,13 @@
                 "fullDescription": "Projet Alpha utilise des algorithmes avancés d'apprentissage automatique pour fournir des informations en temps réel sur les performances de l'entreprise. Il dispose d'une architecture évolutive conçue pour gérer des pétaoctets de données avec facilité. L'interface utilisateur est intuitive, permettant aux utilisateurs non techniques de créer des requêtes complexes."
             },
             "project2": {
-                "title": "Projet Beta",
-                "briefDescription": "Plateforme e-commerce avec architecture microservices.",
-                "fullDescription": "Projet Beta est une solution e-commerce haute performance basée sur une architecture de microservices. Elle assure une haute disponibilité et une tolérance aux pannes. Les fonctionnalités clés incluent un moteur de recommandation, une intégration de paiement transparente et un système de gestion des stocks robuste."
-            },
-            "project3": {
-                "title": "Projet Gamma",
-                "briefDescription": "Réseau social pour développeurs.",
-                "fullDescription": "Projet Gamma connecte les développeurs du monde entier. Il permet aux utilisateurs de présenter leurs portfolios, de collaborer sur des projets open source et de trouver des opportunités d'emploi. La plateforme prend en charge les extraits de code, la messagerie en temps réel et les forums communautaires."
-            },
-            "project4": {
-                "title": "Projet Delta",
-                "briefDescription": "Système de gestion de flotte IoT.",
-                "fullDescription": "Projet Delta permet le suivi et la gestion en temps réel de grandes flottes de véhicules. Utilisant des capteurs IoT, il surveille la santé des véhicules, le comportement des conducteurs et la consommation de carburant. Le système fournit des alertes exploitables et des rapports détaillés."
+                "title": "Northern",
+                "briefDescription": "Écosystème de voyage intelligent et distribué comblant le fossé entre l'inspiration de l'IA et l'exécution réelle.",
+                "fullDescription": "Northern est un écosystème de voyage distribué et intelligent, conçu pour combler le fossé entre l'inspiration générée par l'IA et l'exécution logistique réelle. En orchestrant la créativité générative de Google Gemini avec les données en direct de Google Maps et Ticketmaster, Northern transforme des plans statiques en itinéraires dynamiques, collaboratifs et respectueux du budget, s'adaptant à la réalité en temps réel."
             }
         }
     },
+
     "Contact": {
         "title": "Me Contacter",
         "subtitle": "Ouvert aux postes où je peux livrer des produits numériques percutants — connectons-nous !",
