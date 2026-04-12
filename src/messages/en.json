@@ -64,6 +64,7 @@
     "Projects": {
         "title": "Projects",
         "viewGithub": "View on GitHub →",
+        "clickInfo": "Click to view the Architecture Breakdown and Functional Showcase.",
         "techStack": "Tech Stack:",
         "categories": {
             "frontend": "Frontend",

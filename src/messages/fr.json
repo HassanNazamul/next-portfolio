@@ -64,6 +64,7 @@
     "Projects": {
         "title": "Projets",
         "viewGithub": "Voir sur GitHub →",
+        "clickInfo": "Cliquez pour voir la structure de l'architecture et la présentation fonctionnelle.",
         "techStack": "Tech Stack :",
         "categories": {
             "frontend": "Frontend",

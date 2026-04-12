@@ -209,7 +209,7 @@ export function ProjectShowcase() {
     };
 
     return (
-        <section id="projects" className="container mx-auto p-4 py-24 md:py-32">
+        <section id="projects" className="max-w-6xl mx-auto p-4 py-24 md:py-32">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -224,7 +224,7 @@ export function ProjectShowcase() {
             </motion.div>
 
             <motion.div
-                className="grid grid-cols-1 md:grid-cols-2 gap-6"
+                className="grid grid-cols-1 gap-8"
                 variants={containerVariants}
                 initial="hidden"
                 whileInView="visible"
@@ -233,10 +233,10 @@ export function ProjectShowcase() {
                 {projects.map((project) => (
                     <motion.div key={project.id} variants={itemVariants}>
                         <Card
-                            className="cursor-pointer hover:shadow-lg transition-shadow overflow-hidden group h-full"
+                            className="cursor-pointer hover:shadow-lg transition-shadow overflow-hidden group flex flex-col md:flex-row h-full min-h-[20rem]"
                             onClick={() => setSelectedProject(project)}
                         >
-                            <div className="relative h-48 w-full">
+                            <div className="relative h-64 md:h-full w-full md:w-1/2 shrink-0">
                                 <Image
                                     src={project.thumbnail}
                                     alt={project.title}
@@ -244,9 +244,13 @@ export function ProjectShowcase() {
                                     className="object-cover group-hover:scale-105 transition-transform duration-300"
                                 />
                             </div>
-                            <CardContent className="p-4">
-                                <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                                <p className="text-muted-foreground">{project.briefDescription}</p>
+                            <CardContent className="p-6 md:p-8 flex flex-col justify-start">
+                                <h3 className="text-2xl md:text-3xl font-bold mb-4">{project.title}</h3>
+                                <p className="text-muted-foreground text-lg leading-relaxed">{project.fullDescription}</p>
+                                <div className="mt-auto pt-6 flex items-center gap-2 text-xs font-medium text-muted-foreground/60 uppercase tracking-wider">
+                                    <span className="h-px w-8 bg-border"></span>
+                                    {t('clickInfo') || "Click to view the Architecture Breakdown and Functional Showcase."}
+                                </div>
                             </CardContent>
                         </Card>
                     </motion.div>
@@ -384,12 +388,6 @@ export function ProjectShowcase() {
                                     )}
                                 </div>
 
-                                <div>
-                                    <h4 className="font-semibold mb-2">Description</h4>
-                                    <p className="leading-relaxed text-muted-foreground">
-                                        {selectedProject.fullDescription}
-                                    </p>
-                                </div>
 
                                 <div className="pt-2 flex gap-4">
                                     <Button onClick={() => window.open('#', '_blank')}>
