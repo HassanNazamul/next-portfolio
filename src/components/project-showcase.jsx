@@ -136,7 +136,11 @@ const projectResources = [
                 }
             ]
         },
-        techStack: ["Next.js", "Python", "TensorFlow"],
+        techStack: {
+            frontend: ["Next.js", "Tailwind CSS", "React Context API"],
+            backend: ["Node.js (TypeScript)", "Express.js", "Socket.io", "JSON Web Tokens (JWT)", "Nodemailer"],
+            infrastructure: ["MongoDB", "Redis", "RabbitMQ", "Cloudinary", "Multer", "Docker"]
+        },
     },
     {
         id: "project2",

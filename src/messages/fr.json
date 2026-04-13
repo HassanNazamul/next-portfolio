@@ -74,12 +74,18 @@
         },
         "list": {
             "project1": {
-                "title": "Projet Alpha",
+                "title": "App de Chat en Temps Réel",
                 "briefDescription": "Un tableau de bord d'analyse révolutionnaire piloté par l'IA.",
-                "fullDescription": "Projet Alpha utilise des algorithmes avancés d'apprentissage automatique pour fournir des informations en temps réel sur les performances de l'entreprise. Il dispose d'une architecture évolutive conçue pour gérer des pétaoctets de données avec facilité. L'interface utilisateur est intuitive, permettant aux utilisateurs non techniques de créer des requêtes complexes."
+                "fullDescription": "Une plateforme de messagerie en temps réel haute performance conçue pour une communication sécurisée et évolutive. S'appuyant sur les WebSockets et un backend inspiré des microservices, elle offre une expérience utilisateur fluide avec une livraison instantanée de messages, un support média riche et une gestion robuste de l'identité.",
+                "features": [
+                    "Communication en temps réel de pointe : Intègre une couche Socket.io dédiée pour une messagerie bidirectionnelle à faible latence, garantissant une livraison instantanée, des indicateurs de saisie et un suivi de présence en temps réel sur les clients distribués.",
+                    "Courtage de messages et mise en cache évolutifs : Utilise RabbitMQ pour un traitement fiable des tâches asynchrones (telles que les notifications par e-mail automatisées via Nodemailer) et Redis pour une mise en cache haute vitesse et une gestion des sessions afin de maintenir les performances sous une charge concurrente élevée.",
+                    "Architecture sécurisée pilotée par l'identité : Construite avec un backend TypeScript-first implémentant une authentification robuste basée sur JWT et une gestion sécurisée des sessions pour garantir l'intégrité des données et la sécurité de bout en bout des communications des utilisateurs.",
+                    "Médias riches et déploiement conteneurisé : Optimise l'orchestration des médias en utilisant Multer et Cloudinary pour une gestion performante des actifs (images/vidéos), entièrement conteneurisée avec Docker pour garantir des environnements de déploiement cohérents et une évolutivité horizontale."
+                ]
             },
             "project2": {
-                "title": "Northern",
+                "title": "Planificateur de Voyage IA",
                 "briefDescription": "Écosystème de voyage intelligent et distribué comblant le fossé entre l'inspiration de l'IA et l'exécution réelle.",
                 "fullDescription": "Northern est un écosystème de voyage distribué et intelligent, conçu pour combler le fossé entre l'inspiration générée par l'IA et l'exécution logistique réelle. En orchestrant la créativité générative de Google Gemini avec les données en direct de Google Maps et Ticketmaster, Northern transforme des plans statiques en itinéraires dynamiques, collaboratifs et respectueux du budget, s'adaptant à la réalité en temps réel.",
                 "features": [

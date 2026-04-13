@@ -74,12 +74,18 @@
         },
         "list": {
             "project1": {
-                "title": "Project Alpha",
+                "title": "Real-Time Chat App",
                 "briefDescription": "A revolutionary AI-driven analytics dashboard.",
-                "fullDescription": "Project Alpha leverages advanced machine learning algorithms to provide real-time insights into business performance. It features a scalable architecture designed to handle petabytes of data with ease. The user interface is intuitive, allowing non-technical users to build complex queries."
+                "fullDescription": "A high-performance, real-time messaging platform designed for secure and scalable communication. Leveraging WebSockets and a microservices-inspired backend, it provides a seamless user experience with instant message delivery, rich media support, and robust identity management.",
+                "features": [
+                    "State-of-the-Art Real-Time Communication: Integrates a dedicated Socket.io layer for bi-directional, low-latency messaging, ensuring instant delivery, typing indicators, and real-time presence tracking across distributed clients.",
+                    "Scalable Message Brokering & Caching: Utilizes RabbitMQ for reliable asynchronous task processing (such as automated email notifications via Nodemailer) and Redis for high-speed caching and session management to maintain performance under high concurrent load.",
+                    "Secure, Identity-Driven Architecture: Built with a TypeScript-first backend implementing robust JWT-based authentication and secure session handling to ensure data integrity and end-to-end security for user communications.",
+                    "Rich Media & Containerized Deployment: Streamlines media orchestration using Multer and Cloudinary for high-performance asset handling (images/videos), fully containerized with Docker to ensure consistent deployment environments and horizontal scalability."
+                ]
             },
             "project2": {
-                "title": "Northern",
+                "title": "AI-Travel Planner",
                 "briefDescription": "Intelligent, distributed travel ecosystem bridging AI inspiration and real-world execution.",
                 "fullDescription": "Northern is an intelligent, distributed travel ecosystem designed to bridge the gap between AI-driven inspiration and real-world execution. By orchestrating Google Gemini’s generative creativity with live data from Google Maps and Ticketmaster, Northern transforms static plans into dynamic, collaborative, and budget-aware itineraries that adapt to reality in real-time.",
                 "features": [
