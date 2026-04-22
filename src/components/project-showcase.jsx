@@ -101,13 +101,22 @@ function SequenceViewer({ diagrams }) {
     );
 }
 
+// Helper to convert YouTube URL to embed URL
+const getYoutubeEmbedUrl = (url) => {
+    if (!url) return null;
+    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+    const match = url.match(regExp);
+    return (match && match[2].length === 11) 
+        ? `https://www.youtube.com/embed/${match[2]}` 
+        : url;
+};
+
 // Static data for media and tech stack (language agnostic)
 const projectResources = [
     {
         id: "project1",
         thumbnail: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop",
-        videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
-        youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        youtubeUrl: "https://youtu.be/KWhgj2TvjWA",
         architecture: {
             // classDiagram: "https://images.unsplash.com/photo-1558494949-ef526b0042a0?q=80&w=2695&auto=format&fit=crop",
             erd: "/project/p1/ERD.svg",
@@ -145,7 +154,6 @@ const projectResources = [
     {
         id: "project2",
         thumbnail: "https://images.unsplash.com/photo-1555421689-d68471e18963?q=80&w=2676&auto=format&fit=crop",
-        videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
         youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
         architecture: {
             erd: "/project/p2/ERD.drawio.svg",
@@ -276,13 +284,19 @@ export function ProjectShowcase() {
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 h-auto md:h-96">
                                 {/* Video Section */}
                                 <div className="w-full h-64 md:h-full bg-black rounded-lg overflow-hidden flex items-center justify-center">
-                                    <video
-                                        controls
-                                        className="w-full h-full object-cover"
-                                        src={selectedProject.videoUrl}
-                                    >
-                                        Your browser does not support the video tag.
-                                    </video>
+                                    {selectedProject.youtubeUrl ? (
+                                        <iframe
+                                            className="w-full h-full"
+                                            src={getYoutubeEmbedUrl(selectedProject.youtubeUrl)}
+                                            title={selectedProject.title}
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowFullScreen
+                                        />
+                                    ) : (
+                                        <div className="text-muted-foreground text-sm italic">
+                                            No video available
+                                        </div>
+                                    )}
                                 </div>
 
                                 {/* Architecture Grid (2x2) */}
