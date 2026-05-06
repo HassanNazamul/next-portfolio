@@ -98,7 +98,7 @@ export default function AboutMe() {
                                 <span className="p-2 rounded-lg bg-blue-500/10 text-blue-500"><FaReact size={20} /></span> {t('categories.frontend')}
                             </h3>
                             <div className="flex flex-wrap justify-center gap-2">
-                                {["Next.js", "React", "TypeScript", "Tailwind CSS", "HTML5", "CSS3"].map((skill) => (
+                                {["Next.js", "React", "TypeScript", "Tailwind CSS", "HTML5", "CSS3", "ShadCN", "Redux Toolkit"].map((skill) => (
                                     <span key={skill} className="px-2.5 py-1 rounded-md bg-secondary/40 text-xs text-muted-foreground font-medium border border-white/5 hover:text-foreground hover:bg-secondary/60 transition-colors">
                                         {skill}
                                     </span>
@@ -168,7 +168,7 @@ export default function AboutMe() {
                                 <span className="p-2 rounded-lg bg-red-500/10 text-red-500"><FaCode size={20} /></span> {t('categories.practices')}
                             </h3>
                             <div className="flex flex-wrap justify-center gap-2">
-                                {["Clean Arch", "Performance", "Scalable Systems", "Agile"].map((skill) => (
+                                {["Clean Arch", "Performance", "Scalable Systems", "Agile", "TDD"].map((skill) => (
                                     <span key={skill} className="px-2.5 py-1 rounded-md bg-secondary/40 text-xs text-muted-foreground font-medium border border-white/5 hover:text-foreground hover:bg-secondary/60 transition-colors">
                                         {skill}
                                     </span>
