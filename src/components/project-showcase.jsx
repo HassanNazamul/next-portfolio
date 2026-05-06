@@ -115,8 +115,8 @@ const getYoutubeEmbedUrl = (url) => {
 const projectResources = [
     {
         id: "project1",
-        thumbnail: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop",
-        youtubeUrl: "https://youtu.be/KWhgj2TvjWA",
+        thumbnail: "https://img.youtube.com/vi/wqiWSbiZ45Q/maxresdefault.jpg",
+        youtubeUrl: "https://youtu.be/wqiWSbiZ45Q?si=uSjECZ_imn7uziOc",
         architecture: {
             // classDiagram: "https://images.unsplash.com/photo-1558494949-ef526b0042a0?q=80&w=2695&auto=format&fit=crop",
             erd: "/project/p1/ERD.svg",
@@ -153,8 +153,8 @@ const projectResources = [
     },
     {
         id: "project2",
-        thumbnail: "https://images.unsplash.com/photo-1555421689-d68471e18963?q=80&w=2676&auto=format&fit=crop",
-        youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        thumbnail: "https://img.youtube.com/vi/7ctfQwnDuKw/maxresdefault.jpg",
+        youtubeUrl: "https://youtu.be/7ctfQwnDuKw?si=HGVVMmJTfx9mNGuo",
         architecture: {
             erd: "/project/p2/ERD.drawio.svg",
             highLevelDesign: "/project/p2/HLD-TravelPlanner.drawio.svg",
